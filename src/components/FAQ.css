@@ -1,0 +1,312 @@
+.faq {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(9, 9, 121, 0.1) 100%);
+  position: relative;
+}
+
+.faq::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(9, 9, 121, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.faq-item:hover::before {
+  left: 100%;
+}
+
+.faq-item:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.faq-item.active {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+  transform: translateY(-3px) scale(1.01);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.faq-item.active::before {
+  display: none;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 25px 30px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.faq-question:hover {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.faq-item.active .faq-question {
+  background: rgba(0, 212, 255, 0.1);
+  color: #00d4ff;
+}
+
+.faq-icon {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #00d4ff, #090979);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+}
+
+.faq-item.active .faq-icon {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.5);
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+}
+
+.icon {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1;
+}
+
+.icon.rotate {
+  transform: rotate(45deg) scale(1.1);
+}
+
+/* Version 1: Có animation nhẹ */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.25s ease;
+}
+
+/* Version 2: Không animation (uncomment nếu muốn instant) */
+/*
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+*/
+
+.faq-content {
+  padding: 0 30px 30px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Không animation cho content */
+}
+
+.faq-item.active .faq-content {
+  /* Content hiển thị ngay */
+}
+
+.faq-content p {
+  color: #bbb;
+  line-height: 1.7;
+  margin: 20px 0 0 0;
+  font-size: 1rem;
+}
+
+/* Instant show - không delay */
+.faq-item.active .faq-answer {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: max-height 0.2s ease-out;
+}
+
+.faq-item.active .faq-content {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none;
+}
+
+.faq-item.active .faq-content p {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.faq-cta {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.faq-cta h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #00d4ff, #090979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-cta p {
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-bottom: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-options .btn {
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.contact-options .btn svg {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}
+
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  .faq-icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+  }
+  
+  .icon {
+    font-size: 1rem;
+  }
+  
+  .faq-content {
+    padding: 0 20px 25px 20px;
+  }
+  
+  .faq-content p {
+    font-size: 0.95rem;
+  }
+  
+  .faq-cta {
+    padding: 40px 25px;
+  }
+  
+  .faq-cta h3 {
+    font-size: 1.6rem;
+  }
+  
+  .contact-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-options .btn {
+    min-width: 250px;
+  }
+}
+
+/* Custom animations for FAQ items */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item.active .faq-content {
+  animation: slideDown 0.15s ease forwards;
+}
+
+/* Hover effects */
+.faq-item:hover .faq-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.faq-item.active .faq-icon {
+  background: linear-gradient(45deg, #090979, #00d4ff);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}

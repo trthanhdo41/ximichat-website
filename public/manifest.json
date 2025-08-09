@@ -1,0 +1,29 @@
+{
+  "short_name": "XimiChat",
+  "name": "XimiChat - Giải pháp AI thông minh",
+  "description": "CSKH tự động 24/7 với công nghệ AI tiên tiến",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#00d4ff",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "vi"
+}
