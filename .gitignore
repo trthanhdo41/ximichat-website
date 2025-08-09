@@ -55,3 +55,9 @@ jspm_packages/
 
 # ESLint cache
 .eslintcache
+
+# Deploy scripts (local only)
+deploy.sh
+*.sh
+*.bat
+*.command
