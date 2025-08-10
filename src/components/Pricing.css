@@ -46,9 +46,28 @@
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   margin-bottom: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-grid .pricing-card:nth-child(4),
+.pricing-grid .pricing-card:nth-child(5) {
+  grid-column: span 1;
+  justify-self: center;
+}
+
+/* Grid 6 thẻ: 3 trên, 3 dưới */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .pricing-card {
@@ -60,6 +79,9 @@
   position: relative;
   transition: all 0.3s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .pricing-card::before {
@@ -143,6 +165,23 @@
   min-height: 3rem;
 }
 
+.price-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  flex-wrap: nowrap;
+  text-align: center;
+  font-size: 1.4rem;
+  white-space: nowrap;
+}
+
+.price-with-currency {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
 .price .counter {
   font-variant-numeric: tabular-nums;
 }
@@ -162,6 +201,7 @@
   list-style: none;
   padding: 0;
   margin-bottom: 30px;
+  flex: 1;
 }
 
 .features-list li {
@@ -189,7 +229,7 @@
 
 .plan-button {
   width: 100%;
-  padding: 15px;
+  padding: 15px 20px;
   background: linear-gradient(45deg, var(--plan-color), rgba(255, 255, 255, 0.1));
   border: none;
   border-radius: 10px;
@@ -198,6 +238,13 @@
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1.2;
+  margin-top: auto;
 }
 
 .plan-button:hover {
@@ -255,7 +302,37 @@
   margin-bottom: 25px;
 }
 
+@media (max-width: 1200px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  
+  .pricing-grid .pricing-card:nth-child(4),
+  .pricing-grid .pricing-card:nth-child(5) {
+    grid-column: span 1;
+    justify-self: center;
+  }
+  
+  /* Grid 6 thẻ: 3 trên, 3 dưới */
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .pricing-grid .pricing-card:nth-child(4),
+  .pricing-grid .pricing-card:nth-child(5) {
+    grid-column: span 1;
+    justify-self: stretch;
+  }
+  
   .billing-toggle {
     width: 300px;
     padding: 4px;
@@ -298,6 +375,12 @@
   .pricing-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  
+  .pricing-grid .pricing-card:nth-child(4),
+  .pricing-grid .pricing-card:nth-child(5) {
+    grid-column: span 1;
+    justify-self: stretch;
   }
   
   .pricing-card {

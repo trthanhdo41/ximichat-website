@@ -78,7 +78,24 @@ const Projects = () => {
         'Tăng 150% tỷ lệ chuyển đổi'
       ],
       technologies: ['Zalo OA', 'Facebook Messenger', 'Website Chat'],
-      client: 'Fashion Chain ABC'
+      client: 'Fashion Chain ABC',
+      challenge: 'Chuỗi 15 cửa hàng thời trang gặp khó khăn khi phải xử lý 5000+ tin nhắn/ngày từ khách hàng về sản phẩm, giá cả, khuyến mãi và đặt hàng.',
+      solution: 'Triển khai AI chatbot tích hợp đa kênh: Zalo OA, Facebook Messenger và Website Chat. AI được train với 10,000+ câu hỏi về thời trang.',
+      implementation: 'Thời gian: 8 ngày. Tích hợp với hệ thống quản lý kho, POS và website bán hàng.',
+      metrics: {
+        before: {
+          responseTime: '15-30 phút',
+          staffCost: '25 triệu/tháng',
+          conversionRate: '2.5%',
+          customerSatisfaction: '3.2/5'
+        },
+        after: {
+          responseTime: '< 3 giây',
+          staffCost: '10 triệu/tháng',
+          conversionRate: '6.3%',
+          customerSatisfaction: '4.7/5'
+        }
+      }
     },
     {
       id: 2,
@@ -92,7 +109,24 @@ const Projects = () => {
         'Tăng 180% doanh thu online'
       ],
       technologies: ['Instagram DM', 'Zalo', 'TikTok Shop'],
-      client: 'BeautyWorld Vietnam'
+      client: 'BeautyWorld Vietnam',
+      challenge: 'Công ty mỹ phẩm cần tư vấn 3000+ khách hàng/ngày về sản phẩm phù hợp với loại da, tình trạng da và mục tiêu làm đẹp.',
+      solution: 'AI chatbot được train với database 500+ sản phẩm, 50+ loại da và 100+ vấn đề da phổ biến. Tích hợp với Instagram DM, Zalo và TikTok Shop.',
+      implementation: 'Thời gian: 12 ngày. Tích hợp với hệ thống quản lý sản phẩm và CRM.',
+      metrics: {
+        before: {
+          responseTime: '2-4 giờ',
+          staffCost: '18 triệu/tháng',
+          dailyConsultations: '800',
+          onlineRevenue: '120 triệu/tháng'
+        },
+        after: {
+          responseTime: '< 1 phút',
+          staffCost: '8 triệu/tháng',
+          dailyConsultations: '3200',
+          onlineRevenue: '336 triệu/tháng'
+        }
+      }
     },
     {
       id: 3,
@@ -106,7 +140,24 @@ const Projects = () => {
         'Tiết kiệm 8h/ngày cho creator'
       ],
       technologies: ['YouTube API', 'Auto Comment', 'Sentiment Analysis'],
-      client: 'TechReview Channel'
+      client: 'TechReview Channel',
+      challenge: 'Kênh YouTube công nghệ với 500K+ subscribers nhận 10,000+ comment/ngày. Creator mất 8-10 giờ/ngày để trả lời comment.',
+      solution: 'AI tự động phân tích sentiment và nội dung comment, trả lời thông minh dựa trên context video và lịch sử tương tác.',
+      implementation: 'Thời gian: 5 ngày. Tích hợp với YouTube API và hệ thống quản lý nội dung.',
+      metrics: {
+        before: {
+          dailyComments: '10,000',
+          responseTime: '8-10 giờ',
+          engagementRate: '2.1%',
+          creatorProductivity: '40%'
+        },
+        after: {
+          dailyComments: '12,500',
+          responseTime: '< 1 phút',
+          engagementRate: '6.8%',
+          creatorProductivity: '90%'
+        }
+      }
     },
     {
       id: 4,
@@ -120,7 +171,24 @@ const Projects = () => {
         'Tăng 90% satisfaction score'
       ],
       technologies: ['Zalo', 'Facebook', 'Telegram', 'App Integration'],
-      client: 'Fast Food Chain XYZ'
+      client: 'Fast Food Chain XYZ',
+      challenge: 'Chuỗi nhà hàng fast food cần xử lý 2000+ đơn đặt online/ngày, tư vấn menu và xử lý khiếu nại khách hàng.',
+      solution: 'AI chatbot đa ngôn ngữ (Việt-Anh) tích hợp với hệ thống đặt món, quản lý kho và CRM. Xử lý 15+ loại yêu cầu khác nhau.',
+      implementation: 'Thời gian: 10 ngày. Tích hợp với hệ thống POS, quản lý kho và website.',
+      metrics: {
+        before: {
+          dailyOrders: '800',
+          orderProcessingTime: '15 phút',
+          customerSatisfaction: '3.8/5',
+          onlineRevenue: '45 triệu/tháng'
+        },
+        after: {
+          dailyOrders: '2800',
+          orderProcessingTime: '9 phút',
+          customerSatisfaction: '4.6/5',
+          onlineRevenue: '157 triệu/tháng'
+        }
+      }
     }
   ];
 

@@ -12,9 +12,11 @@ Sitemap: https://ximichat.site/sitemap.xml
 # Allow search engines to crawl all content
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
@@ -22,9 +24,29 @@ Allow: /
 # Social media crawlers
 User-agent: facebookexternalhit
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
+Crawl-delay: 1
 
-# Crawl delay (optional)
-# Crawl-delay: 1
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Pinterest
+Allow: /
+Crawl-delay: 1
+
+# AI and other crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Crawl delay for all other bots
+Crawl-delay: 2

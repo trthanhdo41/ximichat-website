@@ -1,32 +1,32 @@
 import React from 'react';
-import { HiPlay, HiViewColumns, HiCpuChip, HiChatBubbleLeftEllipsis } from 'react-icons/hi2';
+import { HiPlay, HiNewspaper, HiVideoCamera, HiChatBubbleLeftRight, HiChatBubbleBottomCenterText } from 'react-icons/hi2';
 import './Solutions.css';
 
 const Solutions = () => {
   const solutions = [
     {
-      icon: HiChatBubbleLeftEllipsis,
-      title: 'AI Chatbot Đa Nền Tảng',
-      description: 'Tích hợp trên Zalo, Facebook, Telegram, Website với khả năng hiểu và trả lời tự động',
-      features: ['Hiểu ngôn ngữ tự nhiên', 'Trả lời tức thì', 'Học hỏi từ dữ liệu']
+      icon: HiChatBubbleLeftRight,
+      title: 'Chatbot AI CSKH',
+      description: 'AI chatbot cho 4 nền tảng: Zalo, Facebook, Telegram, Web với khả năng hiểu và trả lời tự động 24/7',
+      features: ['4 kênh chat tích hợp', 'AI trả lời thông minh', 'Dashboard phân tích khách hàng']
     },
     {
-      icon: HiPlay,
-      title: 'Auto Reply YouTube',
+      icon: HiChatBubbleBottomCenterText,
+      title: 'YouTube Auto Comment',
       description: 'AI phân tích tiêu đề, mô tả và phụ đề video để tự động trả lời bình luận phù hợp với nội dung',
-      features: ['Phân tích nội dung video', 'Trả lời theo ngữ cảnh video', 'Tăng engagement tự nhiên']
+      features: ['Auto reply comment khán giả', 'Comment chính vào video', 'Báo cáo tương tác chi tiết']
     },
     {
-      icon: HiViewColumns,
-      title: 'Quản Lý Tập Trung',
-      description: 'Dashboard thống nhất để quản lý tất cả các kênh giao tiếp từ một nơi',
-      features: ['Giao diện trực quan', 'Báo cáo chi tiết', 'Thống kê realtime']
+      icon: HiNewspaper,
+      title: 'AI Auto Post Facebook',
+      description: 'Tự động đăng bài từ báo chí và dữ liệu với AI viết caption thông minh',
+      features: ['Auto post từ nguồn báo chí', 'AI viết caption', 'Lên lịch đăng bài tự động']
     },
     {
-      icon: HiCpuChip,
-      title: 'AI Thông Minh',
-      description: 'Công nghệ AI tiên tiến với độ chính xác cao, liên tục học hỏi và cải thiện',
-      features: ['Machine Learning', 'NLP Tiếng Việt', 'Tùy chỉnh theo ngành']
+      icon: HiVideoCamera,
+      title: 'AI Video Generator',
+      description: 'Tự động tạo video marketing chuyên nghiệp với AI từ text và hình ảnh',
+      features: ['Tạo video từ text', 'Tự động thêm nhạc nền', 'Tích hợp đa nền tảng']
     }
   ];
 

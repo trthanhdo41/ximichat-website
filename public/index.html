@@ -12,12 +12,24 @@
     <meta name="description" content="XimiChat - Giải pháp AI thông minh cho CSKH tự động 24/7. Tự động hóa chăm sóc khách hàng trên Zalo, Facebook, Telegram, Website và YouTube. AI bot chat tích hợp website, phân tích dữ liệu khách hàng thông minh. Auto comment YouTube, bot CSKH Telegram chuyên nghiệp. Tiết kiệm 80% thời gian, tăng 300% hiệu quả." />
     <meta name="keywords" content="AI chatbot, CSKH tự động, trí tuệ nhân tạo, Zalo OA, Facebook Messenger, Telegram bot, YouTube automation, AI auto comment YouTube, bot CSKH Telegram, chatbot reply YouTube, Telegram customer service bot, auto reply YouTube comments, AI YouTube engagement, AI bot chat website, chatbot tích hợp website, live chat AI, webchat bot, phân tích dữ liệu khách hàng, customer data analytics, AI insights khách hàng, báo cáo phân tích AI, sentiment analysis, customer behavior analytics, AI customer insights, data-driven customer service, customer service, XimiChat, chatbot Việt Nam, AI customer support, tự động trả lời YouTube, bot Telegram CSKH, web chatbot integration, AI analytics dashboard" />
     <meta name="author" content="XimiChat" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="language" content="Vietnamese" />
     <meta name="geo.region" content="VN" />
     <meta name="geo.country" content="Vietnam" />
     <meta name="distribution" content="global" />
     <meta name="rating" content="general" />
+    
+    <!-- Article Meta Tags -->
+    <meta property="article:published_time" content="2025-01-10T00:00:00+07:00" />
+    <meta property="article:modified_time" content="2025-01-10T00:00:00+07:00" />
+    <meta property="article:author" content="XimiChat" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:tag" content="AI, Chatbot, Customer Service, Automation" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="revisit-after" content="7 days" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -28,8 +40,10 @@
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
     <meta property="og:image:alt" content="XimiChat Logo - AI Customer Service Solution" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:site_name" content="XimiChat" />
     <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale:alternate" content="en_US" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -38,6 +52,14 @@
     <meta property="twitter:description" content="Tự động hóa chăm sóc khách hàng với AI tiên tiến. Hỗ trợ Zalo, Facebook, Telegram, Website và YouTube. AI bot chat tích hợp website, phân tích dữ liệu khách hàng. Auto comment YouTube, bot CSKH Telegram chuyên nghiệp." />
     <meta property="twitter:image" content="%PUBLIC_URL%/logo512.png" />
     <meta property="twitter:image:alt" content="XimiChat Logo - AI Customer Service Solution" />
+    
+    <!-- LinkedIn -->
+    <meta property="og:site_name" content="XimiChat" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="true" />
     
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="W7S8HnLbq_8z17Q-A2ATsaOhJ81b1REk5iLJJH3stac" />
@@ -52,6 +74,18 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Mobile and Performance Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#00d4ff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="msapplication-TileColor" content="#00d4ff" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -73,18 +107,34 @@
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "VN",
-        "addressRegion": "Vietnam"
+        "addressRegion": "Vietnam",
+        "addressLocality": "TP. Thủ Đức",
+        "streetAddress": "Toà BE1 Vinhome Grand Park"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+84-888-889-805",
         "contactType": "customer service",
-        "availableLanguage": "Vietnamese"
+        "availableLanguage": "Vietnamese",
+        "areaServed": "VN",
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        }
       },
       "sameAs": [
         "https://facebook.com/ximichat",
         "https://zalo.me/ximichat"
       ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "service": {
         "@type": "Service",
         "name": "AI Customer Service Automation",
@@ -102,56 +152,64 @@
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Zalo OA Automation"
+                "name": "Zalo OA Automation",
+                "description": "Tự động hóa CSKH trên Zalo Official Account"
               }
             },
             {
               "@type": "Offer", 
               "itemOffered": {
                 "@type": "Service",
-                "name": "Facebook Messenger Bot"
-              }
-            },
-                        {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Telegram Bot Integration"
+                "name": "Facebook Messenger Bot",
+                "description": "Bot chat tự động trên Facebook Messenger"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "YouTube Auto Comment AI"
+                "name": "Telegram Bot Integration",
+                "description": "Tích hợp bot CSKH trên Telegram"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Telegram Customer Service Bot"
+                "name": "YouTube Auto Comment AI",
+                "description": "AI tự động trả lời comment YouTube"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Website Chat Bot Integration"
+                "name": "Telegram Customer Service Bot",
+                "description": "Bot CSKH chuyên nghiệp trên Telegram"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "AI Customer Data Analytics"
+                "name": "Website Chat Bot Integration",
+                "description": "Tích hợp chatbot AI vào website"
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Customer Behavior Analysis"
+                "name": "AI Customer Data Analytics",
+                "description": "Phân tích dữ liệu khách hàng bằng AI"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Customer Behavior Analysis",
+                "description": "Phân tích hành vi khách hàng thông minh"
               }
             }
           ]
