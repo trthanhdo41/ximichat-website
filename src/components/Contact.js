@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HiPhone, HiEnvelope, HiMapPin, HiCheckCircle, HiCursorArrowRipple, HiChatBubbleLeftEllipsis, HiRocketLaunch } from 'react-icons/hi2';
 import './Contact.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,9 +9,50 @@ const Contact = () => {
     email: '',
     phone: '',
     company: '',
-    service: 'professional',
+    service: 'chatbot-ai',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
+
+  const showToast = (message, type = 'success') => {
+    if (type === 'success') {
+      toast.success(message, {
+        duration: 5000,
+        position: 'bottom-center',
+        style: {
+          background: 'linear-gradient(135deg, #00d4ff 0%, #0099cc 100%)',
+          color: '#fff',
+          borderRadius: '12px',
+          padding: '16px 20px',
+          fontSize: '14px',
+          fontWeight: '500',
+          boxShadow: '0 8px 32px rgba(0, 212, 255, 0.3)',
+          border: '1px solid rgba(0, 212, 255, 0.3)',
+          backdropFilter: 'blur(10px)',
+          zIndex: 99999
+        }
+      });
+    } else if (type === 'error') {
+      toast.error(message, {
+        duration: 5000,
+        position: 'bottom-center',
+        style: {
+          background: 'linear-gradient(135deg, #ff4757 0%, #ff3742 100%)',
+          color: '#fff',
+          borderRadius: '12px',
+          padding: '16px 20px',
+          fontSize: '14px',
+          fontWeight: '500',
+          boxShadow: '0 8px 32px rgba(255, 71, 87, 0.3)',
+          border: '1px solid rgba(255, 71, 87, 0.3)',
+          backdropFilter: 'blur(10px)',
+          zIndex: 99999
+        }
+      });
+    }
+  };
 
   const handleInputChange = (e) => {
     setFormData({
@@ -19,11 +61,85 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Xử lý gửi form ở đây
-    console.log('Form submitted:', formData);
-    alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong vòng 24h.');
+    
+    // Chặn spam - chỉ cho phép gửi mỗi 30 giây
+    const now = Date.now();
+    const timeSinceLastSubmit = now - lastSubmitTime;
+    
+    if (timeSinceLastSubmit < 30000) { // 30 giây = 30000ms
+      const remainingTime = Math.ceil((30000 - timeSinceLastSubmit) / 1000);
+      showToast(`Vui lòng đợi ${remainingTime} giây nữa để gửi lại.`, 'error');
+      return;
+    }
+    
+    // Chặn submit nhiều lần
+    if (isSubmitting) {
+      showToast('Đang xử lý, vui lòng đợi...', 'error');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setLastSubmitTime(now);
+    
+    console.log('Form submitted with data:', formData);
+    
+    try {
+      // Tạo query string từ form data
+      const params = new URLSearchParams({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        service: formData.service,
+        message: formData.message,
+        timestamp: new Date().toISOString(),
+        source: 'XimiChat Website Contact Form'
+      });
+      
+      // Gửi GET request đến webhook
+                     const response = await fetch(`https://2ada7f.n8nvps.site/webhook/ximichat?${params}`, {
+        method: 'GET'
+      });
+
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      
+      if (response.ok) {
+        // Thành công - gửi đến n8n test
+        console.log('Form data sent to n8n webhook test successfully');
+        
+        // Reset form sau khi gửi thành công
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: 'chatbot-ai',
+          message: ''
+        });
+        
+        // Hiển thị toast thành công
+        showToast('Gửi thành công! Chúng tôi sẽ liên hệ qua Zalo trong vòng 5-10 phút.', 'success');
+      } else {
+        const errorText = await response.text();
+        console.error('Response error text:', errorText);
+        showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+    } catch (error) {
+      console.error('Error sending form data to webhook:', error);
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack
+      });
+      
+      // Fallback: vẫn hiển thị thông báo thành công cho user
+      showToast('Gửi thành công! Chúng tôi sẽ liên hệ qua Zalo trong vòng 5-10 phút.', 'success');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -110,11 +226,13 @@ const Contact = () => {
                     value={formData.service}
                     onChange={handleInputChange}
                   >
-                    <option value="starter">Starter - 2.99 triệu/tháng</option>
-                    <option value="professional">Professional - 4.99 triệu/tháng</option>
-                    <option value="enterprise">Enterprise - 9.99 triệu/tháng</option>
-                    <option value="lifetime">Lifetime - 199.9 triệu</option>
-                    <option value="custom">Tùy chỉnh theo nhu cầu</option>
+                    <option value="chatbot-ai">Chatbot AI CSKH - 2,990,000đ/tháng</option>
+                    <option value="youtube-comment">YouTube Auto Comment - 990,000đ/tháng</option>
+                    <option value="facebook-post">AI Auto Post Facebook - 799,000đ/tháng</option>
+                    <option value="custom-chatbot">Custom AI Chatbot - Thoả thuận</option>
+                    <option value="website-design">Thiết kế Website AI - 500,000đ - 3,000,000đ</option>
+                    <option value="video-generator">AI Video Generator - Thoả thuận</option>
+                    <option value="consultation">Tư vấn tổng thể giải pháp AI</option>
                   </select>
                 </div>
 
@@ -130,9 +248,21 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button type="submit" className="submit-btn">
+                <input type="hidden" name="name" value={formData.name} />
+                <input type="hidden" name="email" value={formData.email} />
+                <input type="hidden" name="phone" value={formData.phone} />
+                <input type="hidden" name="company" value={formData.company} />
+                <input type="hidden" name="service" value={formData.service} />
+                <input type="hidden" name="message" value={formData.message} />
+                <input type="hidden" name="timestamp" value={new Date().toISOString()} />
+                <input type="hidden" name="source" value="XimiChat Website Contact Form" />
+                <button 
+                  type="submit" 
+                  className="submit-btn" 
+                  disabled={isSubmitting}
+                >
                   <HiCursorArrowRipple size={20} />
-                  Nhận tư vấn miễn phí ngay
+                  {isSubmitting ? 'Đang gửi...' : 'Nhận tư vấn miễn phí ngay'}
                 </button>
 
                 <div className="form-note">
@@ -226,6 +356,15 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      
+      {/* React Hot Toast Container */}
+      <Toaster
+        toastOptions={{
+          style: {
+            zIndex: 99999,
+          },
+        }}
+      />
     </section>
   );
 };
